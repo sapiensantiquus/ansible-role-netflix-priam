@@ -1,0 +1,2 @@
+- src: https://github.com/silpion/ansible-tomcat
+  name: ansible-tomcat

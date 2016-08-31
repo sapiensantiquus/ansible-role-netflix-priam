@@ -1,0 +1,17 @@
+FROM mgage/docker-ansible
+ENV AWS_SESSION_TOKEN WS_SESSION_TOKEN
+ENV AWS_SECRET_ACCESS_KEY WS_SECRET_ACCESS_KEY
+ENV AWS_ACCESS_KEY_ID WS_ACCESS_KEY_ID
+ARG ANSIBLE_OPTIONS
+ARG TEST_LABEL
+ARG TEST_LABEL_KEY
+ARG TEST_TAG
+ARG GIT_COMMIT=unknown
+LABEL $TEST_LABEL_KEY=$TEST_LABEL
+LABEL git-commit=$GIT_COMMIT
+LABEL TEST_TAG=$TEST_TAG
+ADD tests /tmp/playbook
+ADD . /tmp/playbook/roles/$TEST_LABEL
+WORKDIR /tmp/playbook
+RUN ansible-galaxy install -r requirements.yml -p ./roles -f
+RUN ansible-playbook $ANSIBLE_OPTIONS -i inventory tests.yml

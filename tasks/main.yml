@@ -1,0 +1,4 @@
+- name: Download war file from mvnrepository
+  get_url:
+    url: "{{ priam_war_url }}"
+    dest: "{{ priam_war_dest }}"

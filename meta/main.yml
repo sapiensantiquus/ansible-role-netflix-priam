@@ -1,0 +1,4 @@
+dependencies:
+  - src: https://github.com/silpion/ansible-tomcat
+    name: ansible-tomcat
+    version: "{{ ansible_tomcat_role_version }}"

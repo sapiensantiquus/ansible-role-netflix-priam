@@ -1,0 +1,4 @@
+priam_version: 3.1.13
+priam_war_url: "http://central.maven.org/maven2/com/netflix/priam/priam-web/{{ priam_version }}/priam-web-{{ priam_version }}.war"
+priam_war_dest: "/opt/priam/priam.war"
+ansible_tomcat_role_version: 2.1.0
